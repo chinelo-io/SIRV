@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+<changeSet  author="marco.barrios"  id="1">
+    <comment>Se agrega Company test para changeset</comment>
+    <insert schemaName="sirv"
+             tableName="company">
+        <column name="id" value="uuid_v4()"></column>
+        <column  name="name"  value="chinelo.io"/>
+    </insert>
+</changeSet>
+    <changeSet  author="el.joju"  id="2">
+        <comment>Se modifica id de chinelo.io Company</comment>
+        <update tableName="company" >
+            <column name="id" valueComputed="uuid_v4()"></column>
+            <where>name = 'chinelo.io'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>
